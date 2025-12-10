@@ -26,9 +26,10 @@ def load_all_data():
     
     # Try to find data folder - it could be in 'data/' or relative to this script
     data_paths = [
-        Path(__file__).parent.parent / "NovaMart_Marketing_Analytics_Dataset" / "marketing_dataset",
         Path(__file__).parent.parent / "data",
         Path("data"),
+        Path(__file__).parent.parent / "NovaMart_Marketing_Analytics_Dataset" / "marketing_dataset",
+        Path("NovaMart_Marketing_Analytics_Dataset") / "marketing_dataset",
         Path("marketing_dataset"),
     ]
     
@@ -36,6 +37,7 @@ def load_all_data():
     for path in data_paths:
         if path.exists():
             data_path = path
+            st.info(f"📁 Data loaded from: {path}")
             break
     
     if data_path is None:

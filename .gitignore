@@ -85,8 +85,10 @@ venv.bak/
 *.log
 
 # Local data (if storing locally)
-data/
+# Allow CSV files in data/ folder for assignment deployment
+!data/
 !data/README.md
+!data/*.csv
 
 # OS specific
 .DS_Store
@@ -101,4 +103,3 @@ temp/
 # Project specific
 *.xlsx
 *.xls
-*.csv
