@@ -100,9 +100,9 @@ def preprocess_campaign_data(campaigns):
     """Preprocess campaign data for analysis"""
     df = campaigns.copy()
     
-    # Ensure date column is datetime
+    # Ensure date column is datetime (dates are in DD/MM/YYYY format)
     if 'date' in df.columns and df['date'].dtype != 'datetime64[ns]':
-        df['date'] = pd.to_datetime(df['date'])
+        df['date'] = pd.to_datetime(df['date'], format='%d/%m/%Y', errors='coerce')
     
     # Add time-based features
     if 'date' in df.columns:
